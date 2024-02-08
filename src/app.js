@@ -7,10 +7,18 @@
      origin: process.env.CORS_ORIGIN,
      credentials: true
  })); 
- app.use(Express.json({limit: "16kb"}))
+ app.use(Expressxpress.json({limit: "16kb"}))
  app.use(Express.urlencoded({extended: true, limit: "16kb"}))
  app.use(Express.static("public"))
  app.use(cookieParser())
+
+//routes import 
+
+import userRouter from './routes/user.routes.js'
+
+//routes declaration
+
+app.use("/api/v1/users", userRouter)
 
 
  export {app};
